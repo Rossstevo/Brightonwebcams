@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary" dark>
-      <v-toolbar-title class="title-text">Brightonwebcams.com</v-toolbar-title>
+    <v-app-bar app color="primary" flat>
+      <v-toolbar-title class="title-text">Brighton Webcams</v-toolbar-title>
       <v-tabs class="ms-12" v-model="activeTab" background-color="primary">
         <v-tab v-for="tab in tabs" :key="tab">
           {{ tab.title }}
@@ -9,7 +9,7 @@
       </v-tabs>
     </v-app-bar>
     <v-container>
-      <v-tabs-items v-model="activeTab">
+      <v-tabs-items v-model="activeTab" class="mt-8">
         <v-tab-item v-for="(tab, index) in tabs" :key="index">
           <component :is="tab.components"></component>
         </v-tab-item>
@@ -24,6 +24,7 @@ import ParkrunTab from "./components/ParkrunTab.vue";
 import WeatherTab from "./components/WeatherTab.vue";
 import TidesTab from "./components/TidesTab.vue";
 import WebcamsTab from "./components/WebcamsTab.vue";
+import SewageTab from "./components/SewageTab.vue";
 
 export default {
   name: "App",
@@ -32,6 +33,7 @@ export default {
     WeatherTab,
     TidesTab,
     WebcamsTab,
+    SewageTab,
   },
   data() {
     return {
@@ -40,6 +42,7 @@ export default {
         { title: "Live webcams", components: "WebcamsTab" },
         { title: "Tides", components: "TidesTab" },
         { title: "Weather", components: "WeatherTab" },
+        { title: "Sewage", components: "SewageTab" },
         { title: "Parkrun", components: "ParkrunTab" },
       ],
     };
